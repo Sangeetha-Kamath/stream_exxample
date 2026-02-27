@@ -12,13 +12,13 @@ class StreamDataController {
   }
 void  incrementCount(){
  
-  _timer=  Timer(const Duration(seconds: 2),(){
+  _timer=  Timer.periodic(const Duration(seconds: 2),(t){
     if(_i<10){
  _controller.add(_i);
  _i++;
     }else{
 _controller.close();
-_timer?.cancel();
+t.cancel();
 
     }
   });
