@@ -9,7 +9,7 @@ class StreamExample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    StreamDataController controller = StreamDataController();
+    final StreamDataController streamDataController = StreamDataController();
     // Stream<int> incrementCount() async* {
     //   for (int i = 0; i < 10; i++) {
     //     await Future.delayed(const Duration(seconds: 2));
@@ -20,7 +20,7 @@ class StreamExample extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text("Stream Example")),
       body: StreamBuilder<int>(
-        stream: controller.incrementCount(),
+        stream: streamDataController.stream,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(child: CircularProgressIndicator());
