@@ -8,7 +8,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:stream_example/stream_example.dart';
+import 'package:stream_example/stream_example/stream_example.dart';
 
 void main() {
   testWidgets('stream emits the number and shows the first value', (

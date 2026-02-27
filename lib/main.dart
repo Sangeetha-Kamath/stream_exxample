@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'stream_example.dart';
+import 'stream_example/stream_example.dart';
 
 void main() {
   runApp(const MyApp());
