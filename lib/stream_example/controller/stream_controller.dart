@@ -1,18 +1,24 @@
 import 'dart:async';
 
 class StreamDataController {
-   final StreamController<int> controller = StreamController<int>();
-  Timer? timer;
-  int i=0;
-Stream<int> incrementCount()async*{
+   final StreamController<int> _controller = StreamController<int>();
+  Timer? _timer;
+  int _i=0;
+  Stream<int> get stream{
+    return _controller.stream;
+  }
+  StreamDataController(){
+    incrementCount();
+  }
+void  incrementCount(){
  
-  timer=  Timer(const Duration(seconds: 2),(){
-    if(i<10){
- controller.add(i);
- i++;
+  _timer=  Timer(const Duration(seconds: 2),(){
+    if(_i<10){
+ _controller.add(_i);
+ _i++;
     }else{
-controller.close();
-timer?.cancel();
+_controller.close();
+_timer?.cancel();
 
     }
   });
