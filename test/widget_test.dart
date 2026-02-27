@@ -7,6 +7,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:get/get.dart';
+import 'package:stream_example/stream_example/controller/stream_controller.dart';
 
 import 'package:stream_example/stream_example/stream_example.dart';
 
@@ -14,13 +16,18 @@ void main() {
   testWidgets('stream emits the number and shows the first value', (
     WidgetTester tester,
   ) async {
+    Get.lazyPut<StreamDataController>(() => StreamDataController());
     // Build our app and trigger a frame.
     await tester.pumpWidget(const MaterialApp(home: StreamExample()));
     //show loader initially becuase the stream is not emitted yet
     expect(find.byType(CircularProgressIndicator), findsOneWidget);
     await tester.pump(const Duration(seconds: 2));
+    await tester.pump();
 
     // Verify that our counter starts at 0.
     expect(find.text("0"), findsOneWidget);
+     Get.delete<StreamDataController>(force: true);
+    await tester.pump();
+
   });
 }

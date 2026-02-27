@@ -13,8 +13,9 @@ class StreamDataController extends GetxController {
   @override
   void onInit() {
     // TODO: implement onInit
-    super.onInit();
+    
     incrementCount();
+    super.onInit();
   }
  
 void  incrementCount(){
@@ -37,9 +38,10 @@ t.cancel();
 @override
   void dispose() {
     // TODO: implement dispose
-    super.dispose();
+   
     _controller.close();
     _timer?.cancel();
+     super.dispose();
 
   }
 
