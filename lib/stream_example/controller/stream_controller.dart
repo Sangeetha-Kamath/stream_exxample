@@ -1,6 +1,8 @@
 import 'dart:async';
 
-class StreamDataController {
+import 'package:get/get.dart';
+
+class StreamDataController extends GetxController {
    final StreamController<int> _controller = StreamController<int>();
 
   int _i=0;
@@ -27,6 +29,13 @@ t.cancel();
   
 
 }
+@override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    _controller.close();
+    
+  }
 
   
 }

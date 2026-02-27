@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'controller/stream_controller.dart';
 
@@ -7,7 +8,7 @@ class StreamExample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final StreamDataController streamDataController = StreamDataController();
+    final StreamDataController streamDataController = Get.find<StreamDataController>();
     // Stream<int> incrementCount() async* {
     //   for (int i = 0; i < 10; i++) {
     //     await Future.delayed(const Duration(seconds: 2));

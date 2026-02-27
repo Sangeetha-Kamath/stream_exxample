@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:stream_example/stream_example/controller/stream_controller.dart';
 
 import 'stream_example/stream_example.dart';
 
 void main() {
+  Get.lazyPut(()=>StreamDataController());
   runApp(const MyApp());
 }
 
