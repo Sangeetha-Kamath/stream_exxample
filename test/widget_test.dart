@@ -23,6 +23,6 @@ void main() {
         .pump(); //rebuild after 2 seconds because stream emits it receives value
 
     // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
+    expect(find.text("0"),findsOne);
   });
 }
