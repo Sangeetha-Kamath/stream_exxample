@@ -6,7 +6,7 @@ class StreamExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Stream<int> incrementCount() async* {
-      for (int i = 0; i<10; i++) {
+      for (int i = 0; i < 10; i++) {
         await Future.delayed(const Duration(seconds: 2));
         yield i;
       }
@@ -21,10 +21,10 @@ class StreamExample extends StatelessWidget {
             return Center(child: CircularProgressIndicator());
           } else if (snapshot.connectionState == ConnectionState.active) {
             return Center(child: Text(snapshot.data.toString()));
-          } else if(snapshot.connectionState == ConnectionState.done){
+          } else if (snapshot.connectionState == ConnectionState.done) {
             return Center(child: Text("Connnection closed"));
-          }else{
-            return Center(child: Text("something went wrong"),);
+          } else {
+            return Center(child: Text("something went wrong"));
           }
         },
       ),
