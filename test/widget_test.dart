@@ -19,6 +19,9 @@ void main() {
     //show loader initially becuase the stream is not emitted yet
     expect(find.byType(CircularProgressIndicator), findsOneWidget);
     await tester.pump(const Duration(seconds: 2));
-    expect(find.text("0"), findsOneWidget);
+  
+
+    // Verify that our counter starts at 0.
+    expect(find.text("0"),findsOneWidget);
   });
 }
