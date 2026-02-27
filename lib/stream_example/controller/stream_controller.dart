@@ -7,12 +7,16 @@ class StreamDataController extends GetxController {
 
   int _i=0;
   Timer? _timer;
-  Stream<int> get stream{
-    return _controller.stream;
-  }
-  StreamDataController(){
+  Stream<int> get stream=>
+     _controller.stream;
+  
+  @override
+  void onInit() {
+    // TODO: implement onInit
+    super.onInit();
     incrementCount();
   }
+ 
 void  incrementCount(){
  
    _timer=Timer.periodic(const Duration(seconds: 2),(t){
