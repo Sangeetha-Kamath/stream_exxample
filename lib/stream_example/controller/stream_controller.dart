@@ -36,7 +36,7 @@ t.cancel();
 
 }
 @override
-  void dispose() {
+  void onClose() {
     // TODO: implement dispose
    
     _controller.close();
