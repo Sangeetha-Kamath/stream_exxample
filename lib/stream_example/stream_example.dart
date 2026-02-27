@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 import 'controller/stream_controller.dart';
 
 class StreamExample extends StatelessWidget {
-  
   const StreamExample({super.key});
-
 
   @override
   Widget build(BuildContext context) {
