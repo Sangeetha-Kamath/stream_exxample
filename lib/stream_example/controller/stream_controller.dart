@@ -6,6 +6,7 @@ class StreamDataController extends GetxController {
    final StreamController<int> _controller = StreamController<int>();
 
   int _i=0;
+  Timer? _timer;
   Stream<int> get stream{
     return _controller.stream;
   }
@@ -14,7 +15,7 @@ class StreamDataController extends GetxController {
   }
 void  incrementCount(){
  
-   Timer.periodic(const Duration(seconds: 2),(t){
+   _timer=Timer.periodic(const Duration(seconds: 2),(t){
     if(_i<10){
  _controller.add(_i);
  _i++;
@@ -34,7 +35,8 @@ t.cancel();
     // TODO: implement dispose
     super.dispose();
     _controller.close();
-    
+    _timer?.cancel();
+
   }
 
   
