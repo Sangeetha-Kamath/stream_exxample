@@ -2,7 +2,7 @@ import 'dart:async';
 
 class StreamDataController {
    final StreamController<int> _controller = StreamController<int>();
-  Timer? _timer;
+
   int _i=0;
   Stream<int> get stream{
     return _controller.stream;
@@ -12,7 +12,7 @@ class StreamDataController {
   }
 void  incrementCount(){
  
-  _timer=  Timer.periodic(const Duration(seconds: 2),(t){
+   Timer.periodic(const Duration(seconds: 2),(t){
     if(_i<10){
  _controller.add(_i);
  _i++;
