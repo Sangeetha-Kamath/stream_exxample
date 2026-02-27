@@ -1,30 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import 'controller/stream_controller.dart';
 
 class StreamExample extends StatelessWidget {
   const StreamExample({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Stream<int> incrementCount() async* {
-      for (int i = 0; i<10; i++) {
-        await Future.delayed(const Duration(seconds: 2));
-        yield i;
-      }
-    }
+    final StreamDataController streamDataController = Get.find<StreamDataController>();
+    // Stream<int> incrementCount() async* {
+    //   for (int i = 0; i < 10; i++) {
+    //     await Future.delayed(const Duration(seconds: 2));
+    //     yield i;
+    //   }
+    // }
 
     return Scaffold(
       appBar: AppBar(title: Text("Stream Example")),
       body: StreamBuilder<int>(
-        stream: incrementCount(),
+        stream: streamDataController.stream,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(child: CircularProgressIndicator());
           } else if (snapshot.connectionState == ConnectionState.active) {
             return Center(child: Text(snapshot.data.toString()));
-          } else if(snapshot.connectionState == ConnectionState.done){
+          } else if (snapshot.connectionState == ConnectionState.done) {
             return Center(child: Text("Connnection closed"));
-          }else{
-            return Center(child: Text("something went wrong"),);
+          } else {
+            return Center(child: Text("something went wrong"));
           }
         },
       ),
